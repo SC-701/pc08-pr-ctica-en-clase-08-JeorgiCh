@@ -1,0 +1,48 @@
+﻿@page "{id:guid}"
+@model Web.Pages.Productos.EliminarModel
+@{
+    ViewData["Title"] = "Eliminar Producto";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-danger text-white py-3 text-center">
+                    <h3 class="mb-0 fw-bold"><i class="bi bi-exclamation-triangle me-2"></i>¿Eliminar este producto?</h3>
+                </div>
+                <div class="card-body p-4 text-center">
+                    <p class="lead mb-4">Esta acción no se puede deshacer. Confirme que desea eliminar el siguiente registro:</p>
+
+                    <div class="bg-light p-4 rounded-3 mb-4">
+                        <h4 class="text-dark fw-bold">@Model.producto.Nombre</h4>
+                        <p class="text-muted mb-0">@Model.producto.Descripcion</p>
+                        <hr />
+                        <div class="d-flex justify-content-around">
+                            <div>
+                                <small class="text-muted d-block text-uppercase fw-bold">Precio</small>
+                                <span class="fs-5">@Model.producto.Precio.ToString("C")</span>
+                            </div>
+                            <div>
+                                <small class="text-muted d-block text-uppercase fw-bold">Stock</small>
+                                <span class="fs-5">@Model.producto.Stock</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form method="post">
+                        <input type="hidden" asp-for="producto.Id" />
+
+                        <div class="mb-3">
+                            <label asp-for="producto.Nombre" class="form-label fw-bold"></label>
+                            <input asp-for="producto.Nombre" class="form-control" />
+                            <span asp-validation-for="producto.Nombre" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-warning rounded-pill">Actualizar Cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

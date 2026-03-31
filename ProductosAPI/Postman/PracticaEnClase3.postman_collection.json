@@ -1,0 +1,132 @@
+{
+  "info": {
+    "_postman_id": "ca928783-a1d5-4a5e-94a9-58ef95b2d0b8",
+    "name": "PracticaEnClase3",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43922563",
+    "_collection_link": "https://go.postman.co/collection/43922563-ca928783-a1d5-4a5e-94a9-58ef95b2d0b8?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "AgregarProducto",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Uva\",\r\n  \"descripcion\": \"Uva fresca\",\r\n  \"precio\": 99.99,\r\n  \"stock\": 214,\r\n  \"codigoBarras\": \"8472134439215372421014256907925536835838107961181005\",\r\n  \"idSubCategoria\": \"42E84D16-005A-422C-9F7E-6EBA73A4B3BB\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7233/api/Producto",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7233",
+          "path": [
+            "api",
+            "Producto"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ObtenerProductos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7233/api/Producto",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7233",
+          "path": [
+            "api",
+            "Producto"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "EditarProducto",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Pape\",\r\n  \"descripcion\": \"Pape fresca\",\r\n  \"precio\": 999999.99,\r\n  \"stock\": 2147483647,\r\n  \"codigoBarras\": \"592186171506924328228059823910824484086324218084567660732604184064\",\r\n  \"idSubCategoria\": \"42E84D16-005A-422C-9F7E-6EBA73A4B3BB\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7233/api/Producto/65b9991e-8895-4259-8ea8-c05d16e7d3be",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7233",
+          "path": [
+            "api",
+            "Producto",
+            "65b9991e-8895-4259-8ea8-c05d16e7d3be"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "EliminarProducto",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7233/api/Producto/52623d85-1448-4bc1-a381-6e352e269e60",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7233",
+          "path": [
+            "api",
+            "Producto",
+            "52623d85-1448-4bc1-a381-6e352e269e60"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ObtenerProducto",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7233/api/Producto/796e30f1-0268-451d-9db6-f58ad95fb4c5",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7233",
+          "path": [
+            "api",
+            "Producto",
+            "796e30f1-0268-451d-9db6-f58ad95fb4c5"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
