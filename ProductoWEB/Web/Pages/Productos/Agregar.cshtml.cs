@@ -1,11 +1,13 @@
 using Abstracciones.Modelos;
 using Abstracciones.Reglas;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 
 namespace Web.Pages.Productos
 {
+    [Authorize(Roles = "2")]
     public class AgregarModel : PageModel
     {
         private readonly IProductoReglas _productoReglas;
@@ -31,13 +33,25 @@ namespace Web.Pages.Productos
             }
 
             string endpoint = _productoReglas.ObtenerMetodo("ApiEndPoints", "AgregarProducto");
-            var httpProducto = new HttpClient();
+            var httpCliente = ObtenerClienteConToken();
             var solicitud = new HttpRequestMessage(HttpMethod.Post, endpoint);
 
-            var respuesta = await httpProducto.PostAsJsonAsync(endpoint, producto);
+            var respuesta = await httpCliente.PostAsJsonAsync(endpoint, producto);
             respuesta.EnsureSuccessStatusCode();
 
             return RedirectToPage("./Index");
+        }
+
+        private HttpClient ObtenerClienteConToken()
+        {
+            var tokenClaim = HttpContext.User.Claims
+                .FirstOrDefault(c => c.Type == "AccessToken");
+            var cliente = new HttpClient();
+            if (tokenClaim != null)
+                cliente.DefaultRequestHeaders.Authorization =
+                    new System.Net.Http.Headers.AuthenticationHeaderValue(
+                        "Bearer", tokenClaim.Value);
+            return cliente;
         }
     }
 }

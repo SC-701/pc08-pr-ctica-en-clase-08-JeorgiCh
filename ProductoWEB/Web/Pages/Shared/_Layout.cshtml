@@ -81,6 +81,9 @@
                         <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString()?.Contains("Productos") == true ? "active" : "")"
                            asp-page="/Productos/Index">Productos</a>
                     </li>
+                    <div class="align-content-end navbar-nav text-uppercase">
+                        @await Html.PartialAsync("_AutenticacionParcial")
+                    </div>
                 </ul>
             </div>
         </div>
